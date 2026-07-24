@@ -8,7 +8,9 @@
     - [x] Modify `app/build.gradle.kts` to support signing via environment variables
 - [x] **GitHub Actions Setup**
     - [x] Create `.github/workflows/android-release.yml`
-- [ ] **Verification**
-    - [ ] Run a local build check
+- [x] **Verification**
+    - [x] Run a local build check
+- [x] **Fix Build Failure**
+    - [x] Create missing `app/proguard-rules.pro`
 - [ ] **Post-Execution Instructions**
     - [ ] Provide instructions for GitHub Secrets setup

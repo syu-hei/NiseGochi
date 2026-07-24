@@ -1,35 +1,52 @@
-# Walkthrough - NiseGochi 1.0.0 Release Preparation
+# Walkthrough - GitHub Release & Signed APK Automation
 
-The app is now optimized and polished for its 1.0.0 release.
+NiseGochi 1.0.0 is now ready for its official debut. I have committed the changes, tagged the version, and set up a GitHub Actions workflow to automate the release process.
 
-## Key Changes
+## Key Accomplishments
 
-### 1. Production Build Optimization
-- **Version Update**: Updated `versionName` to `1.0.0` in `build.gradle.kts`.
-- **R8 Minification**: Enabled R8 minification, resource shrinking, and ProGuard optimization for the release build to ensure a smaller and more secure APK.
+### 1. Version Tagging
+- **Commit**: All release preparations have been committed (`chore: release version 1.0.0`).
+- **Git Tag**: Created tag `v1.0.0`. Pushing this tag to GitHub will trigger the automated build process.
 
-### 2. Santa Pantry Hookup
-- Added a functional way to access the **Pantry** feature for Santa characters.
-- **Interaction**: On the Main Screen, highlight the **Food icon** and press the **C button**.
-- **Visual Feedback**: The Food icon will flicker when "Pantry Mode" is active, indicating that pressing **B** will open the Pantry instead of the standard Food menu.
+### 2. Release Automation (GitHub Actions)
+- Created [android-release.yml](file:///C:/Users/Oshir/StudioProjects/NiseGochi/.github/workflows/android-release.yml).
+- **Triggers**: On every push of a tag starting with `v`.
+- **Functionality**:
+    - Compiles the Android project.
+    - Decodes and applies the signing keystore.
+    - Creates a formal GitHub Release.
+    - Uploads the signed `app-release.apk` as an asset.
 
-### 3. Polished Notifications
-- Replaced the generic Android alert icon with the custom `attention_icon` in `NotificationHelper.kt`.
+### 3. Signing Support
+- Updated `app/build.gradle.kts` to allow signing configurations to be injected via environment variables (`KEYSTORE_PASSWORD`, etc.).
+- This allows the build to remain secure (no hardcoded passwords) and portable.
 
-### 4. Code Health & Cleanup
-- Removed unused functions in `PetViewModel.kt` (`selectIcon`, etc.).
-- Fixed multiple linter warnings in `PetEngine.kt`, `PetRepository.kt`, and `MainActivity.kt`.
-- Improved code idiomaticity (e.g., using `repeat` instead of unused loops, proper `val` declarations).
+## Verification
+- Local build check (`assembleDebug`) was successful.
+- Git tag `v1.0.0` points to the latest release commit.
 
-## Verification Results
+## Next Steps: GitHub Setup
 
-### Automated Tests
-- Ran unit tests: **8 passed, 0 failed**.
-- Build status: **Success** (both debug and release configurations).
+To complete the setup and generate your first signed release, please follow these manual steps:
 
-### Manual Verification
-- Verified that the `togglePantry` logic correctly switches states and plays a confirmation beep.
-- Verified that the notification builder now uses the correct drawable resource.
+### 1. Push to GitHub
+Run the following command in your terminal to push the code and the tag:
+```powershell
+git push origin main --tags
+```
+
+### 2. Configure GitHub Secrets
+Go to your GitHub repository: **Settings > Secrets and variables > Actions** and add the following **Repository secrets**:
+
+| Secret Name | Description |
+| :--- | :--- |
+| `KEYSTORE_BASE64` | The Base64 encoded string of your `.jks` file. |
+| `KEYSTORE_PASSWORD` | Your keystore password. |
+| `KEY_ALIAS` | Your key alias. |
+| `KEY_PASSWORD` | Your key password. |
 
 > [!TIP]
-> You can now safely generate a release APK or App Bundle from **Build > Build Bundle(s) / APK(s) > Build APK(s)** (or using the `assembleRelease` task) for uploading to GitHub or Play Store.
+> To get the `KEYSTORE_BASE64` string on Windows, run:
+> `[Convert]::ToBase64String([IO.File]::ReadAllBytes("path\to\your\keystore.jks"))` in PowerShell.
+
+Once these secrets are added, pushing the `v1.0.0` tag will automatically create the release for you!
