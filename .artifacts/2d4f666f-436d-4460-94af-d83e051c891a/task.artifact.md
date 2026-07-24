@@ -12,5 +12,7 @@
     - [x] Run a local build check
 - [x] **Fix Build Failure**
     - [x] Create missing `app/proguard-rules.pro`
+- [x] **Fix Permissions Issue**
+    - [x] Grant `contents: write` permissions in `android-release.yml`
 - [ ] **Post-Execution Instructions**
     - [ ] Provide instructions for GitHub Secrets setup
