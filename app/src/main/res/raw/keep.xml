@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@drawable/*_idle_*,@drawable/*_eat_*,@drawable/*_play_*,@drawable/*_sick_*,@drawable/*_sleep_*,@drawable/*_no_*,@drawable/*_happy_*,@drawable/*_unhappy_*,@drawable/babytchi_*,@drawable/tonmarutchi_*,@drawable/tongaritchi_*,@drawable/hashitamatchi_*,@drawable/mimitchi_*,@drawable/pochitchi_*,@drawable/zuccitchi_*,@drawable/hashizotchi_*,@drawable/takotchi_*,@drawable/kusatchi_*,@drawable/zatchi_*,@drawable/santatchi_*,@drawable/cabin_*,@drawable/num*,@drawable/poop_*,@drawable/egg_crack_*,@drawable/egg_idle_*,@drawable/hatching" />

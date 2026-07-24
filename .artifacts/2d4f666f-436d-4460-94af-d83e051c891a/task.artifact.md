@@ -14,5 +14,8 @@
     - [x] Create missing `app/proguard-rules.pro`
 - [x] **Fix Permissions Issue**
     - [x] Grant `contents: write` permissions in `android-release.yml`
-- [ ] **Post-Execution Instructions**
+- [x] **Post-Execution Instructions**
+    - [x] Provide instructions for GitHub Secrets setup
+    - [x] Verify successful release on GitHub Actions
+
     - [ ] Provide instructions for GitHub Secrets setup

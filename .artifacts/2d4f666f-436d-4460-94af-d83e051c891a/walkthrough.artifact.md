@@ -23,9 +23,12 @@ NiseGochi 1.0.0 is now ready for its official debut. I have committed the change
 
 ## Verification
 - Local build check (`assembleDebug`) was successful.
-- Git tag `v1.0.0` points to the latest release commit.
+- Git tag `v1.0.4` points to the latest release commit.
+- **GitHub Actions v1.0.4 build successful!**
 
-## Next Steps: GitHub Setup
+## Final Status: RELEASED
+The signed APK is now available under the **Releases** section of your GitHub repository.
+
 
 To complete the setup and generate your first signed release, please follow these manual steps:
 
