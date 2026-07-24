@@ -44,6 +44,7 @@ class PetViewModel(private val repository: PetRepository) : ViewModel() {
     fun togglePantry() {
         if (petState.value.character.startsWith("santa")) {
             _pantryMode.value = !_pantryMode.value
+            AudioManager.playSound("santa_small_beep")
         }
     }
 
@@ -170,19 +171,6 @@ class PetViewModel(private val repository: PetRepository) : ViewModel() {
         repository.adjustClock(seconds)
     }
 
-    fun selectIcon() {
-        // Handle selection based on highlightedIcon
-        when (_highlightedIcon.value) {
-            1 -> { /* Food - handled by UI navigation usually */ }
-            2 -> toggleLights()
-            3 -> startGame()
-            5 -> clean()
-            4 -> heal()
-            7 -> discipline()
-            // ...
-        }
-    }
-
     fun startGame() = repository.startGame()
     fun guessHigher() = repository.guessHigher()
     fun guessLower() = repository.guessLower()
@@ -190,8 +178,6 @@ class PetViewModel(private val repository: PetRepository) : ViewModel() {
     fun selectChimney() = repository.selectChimney()
     fun cyclePantrySelection() = repository.cyclePantrySelection()
     fun usePantryItem() = repository.usePantryItem()
-    fun evolveToSanta() = repository.evolveToSanta()
-    fun evolveToCabin() = repository.evolveToCabin()
     fun setCharacter(name: String) = repository.setCharacter(name)
     fun setHunger(value: Int) = repository.setHunger(value)
     fun setHappiness(value: Int) = repository.setHappiness(value)
@@ -203,9 +189,8 @@ class PetViewModel(private val repository: PetRepository) : ViewModel() {
 
     fun feed(isMeal: Boolean) = repository.feed(isMeal)
     fun confirmFood() {
-        feed(_foodSelection.value == 0)
+        feed(isMeal = _foodSelection.value == 0)
     }
-    fun play() = repository.play()
     fun clean() = repository.clean()
     fun heal() = repository.heal()
     fun discipline() = repository.discipline()

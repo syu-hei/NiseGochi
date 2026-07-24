@@ -32,6 +32,7 @@ fun IconBar(
     selectedIndex: Int, // 1-based index
     modifier: Modifier = Modifier,
     attentionActive: Boolean = false,
+    pantryActive: Boolean = false,
     startIndex: Int = 1 // The first icon's index in the global icon list
 ) {
     val infiniteTransition = rememberInfiniteTransition(label = "flicker")
@@ -60,7 +61,7 @@ fun IconBar(
             val globalIndex = startIndex + index
             val isSelected = globalIndex == selectedIndex
             val isAttention = iconId == R.drawable.attention_icon
-            val isFlickering = isAttention && attentionActive
+            val isFlickering = (isAttention && attentionActive) || (globalIndex == 1 && pantryActive)
             
             // Retro UI: Selected icons have a solid dark background
             val lcdOnColor = Color(0xFF2B3324) // Darker "ink" color

@@ -32,7 +32,7 @@ object PetEngine {
         if (!nextState.isAlive) return nextState
 
         // Reset metabolism if expired
-        if (nextState.metabolismFactor > 1.0 && nextState.totalTimeSeconds >= nextState.metabolismEndTime) {
+        if ((nextState.metabolismFactor > 1.0) && nextState.totalTimeSeconds >= nextState.metabolismEndTime) {
             nextState = nextState.copy(metabolismFactor = 1.0)
         }
 
@@ -124,7 +124,7 @@ object PetEngine {
     }
 
     private fun endRound(state: PetState): PetState {
-        var s = state
+        val s = state
         val won = (s.gameAnswer == "higher" && s.secretNumber > s.givenNumber) ||
                   (s.gameAnswer == "lower" && s.secretNumber < s.givenNumber)
         
@@ -503,26 +503,25 @@ object PetEngine {
     fun PetState.computeSleepWakeTimes(): PetState {
         // Simplified logic for computing sleep/wake times based on 1970 birth time
         // In a real app, we'd use Calendar or java.time
-        val birthDate = Date(this.birthTimeMillis)
         val currentTimeMillis = this.birthTimeMillis + (this.totalTimeSeconds * 1000).toLong()
         val now = Date(currentTimeMillis)
         
         val calendar = Calendar.getInstance()
         calendar.time = now
         
-        calendar.set(Calendar.HOUR_OF_DAY, this.sleepingHour)
-        calendar.set(Calendar.MINUTE, 0)
-        calendar.set(Calendar.SECOND, 0)
+        calendar[Calendar.HOUR_OF_DAY] = this.sleepingHour
+        calendar[Calendar.MINUTE] = 0
+        calendar[Calendar.SECOND] = 0
         var sleepTimeMillis = calendar.timeInMillis
         if (sleepTimeMillis <= currentTimeMillis) {
-            sleepTimeMillis += 24 * 3600 * 1000
+            sleepTimeMillis += 24L * 3600L * 1000L
         }
         val timeToSleep = (sleepTimeMillis - this.birthTimeMillis) / 1000.0
 
-        calendar.set(Calendar.HOUR_OF_DAY, this.wakingHour)
+        calendar[Calendar.HOUR_OF_DAY] = this.wakingHour
         var wakeTimeMillis = calendar.timeInMillis
         if (wakeTimeMillis <= currentTimeMillis) {
-            wakeTimeMillis += 24 * 3600 * 1000
+            wakeTimeMillis += 24L * 3600L * 1000L
         }
         val timeToWake = (wakeTimeMillis - this.birthTimeMillis) / 1000.0
 

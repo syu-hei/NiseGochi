@@ -118,7 +118,13 @@ fun AdaptivePetLayout(
 
     val onCAction: () -> Unit = {
         when (backStack.last()) {
-            PetRoute.Main -> backStack.add(PetRoute.Clock)
+            PetRoute.Main -> {
+                if (highlightedIcon == 1 && petState.character.startsWith("santa")) {
+                    viewModel.togglePantry()
+                } else {
+                    backStack.add(PetRoute.Clock)
+                }
+            }
             PetRoute.Clock -> {
                 if (!viewModel.onClockCPress()) {
                     backStack.removeAt(backStack.size - 1)

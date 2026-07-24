@@ -45,6 +45,7 @@ fun MainScreen(
 ) {
     val petState by viewModel.petState.collectAsState()
     val highlightedIcon by viewModel.highlightedIcon.collectAsState()
+    val pantryMode by viewModel.pantryMode.collectAsState()
     
     val topIcons = listOf(
         R.drawable.food_icon,
@@ -67,7 +68,12 @@ fun MainScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        IconBar(icons = topIcons, selectedIndex = highlightedIcon, startIndex = 1)
+        IconBar(
+            icons = topIcons,
+            selectedIndex = highlightedIcon,
+            startIndex = 1,
+            pantryActive = pantryMode
+        )
         
         Spacer(modifier = Modifier.height(16.dp))
         

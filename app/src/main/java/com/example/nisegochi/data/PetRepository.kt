@@ -20,7 +20,7 @@ import kotlinx.coroutines.withContext
 
 class PetRepository(
     private val petDao: PetDao,
-    private val notificationHelper: NotificationHelper? = null
+    private val notificationHelper: NotificationHelper? = null,
 ) {
     private val _petState = MutableStateFlow(PetState())
     val petState: StateFlow<PetState> = _petState.asStateFlow()
@@ -28,7 +28,7 @@ class PetRepository(
     private val scope = CoroutineScope(Dispatchers.IO)
     private var lastSaveTime = System.currentTimeMillis()
 
-    private val _isLoaded = MutableStateFlow(false)
+    private val _isLoaded = MutableStateFlow(value = false)
     val isLoaded: StateFlow<Boolean> = _isLoaded.asStateFlow()
 
     init {
@@ -53,11 +53,11 @@ class PetRepository(
             val maxCatchUpSeconds = 24 * 3600L
             val actualSecondsToCatchUp = secondsPassed.coerceIn(0, maxCatchUpSeconds)
             
-            if (!loadedState.isPaused && actualSecondsToCatchUp > 0) {
+            if ((!loadedState.isPaused) && actualSecondsToCatchUp > 0) {
                 withContext(Dispatchers.Default) {
-                    for (i in 1..actualSecondsToCatchUp) {
+                    repeat(actualSecondsToCatchUp.toInt()) {
                         caughtUpState = PetEngine.tick(caughtUpState)
-                        if (!caughtUpState.isAlive) break
+                        if (!caughtUpState.isAlive) return@repeat
                     }
                 }
             }

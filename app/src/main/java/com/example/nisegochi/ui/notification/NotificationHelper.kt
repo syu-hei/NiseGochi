@@ -44,7 +44,7 @@ class NotificationHelper(context: Context) {
         )
 
         val builder = NotificationCompat.Builder(appContext, CHANNEL_ID)
-            .setSmallIcon(android.R.drawable.ic_dialog_alert) // TODO: Use better icon
+            .setSmallIcon(R.drawable.attention_icon)
             .setContentTitle(title)
             .setContentText(message)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
