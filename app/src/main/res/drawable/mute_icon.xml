@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="16dp"
+    android:height="8dp"
+    android:viewportWidth="16"
+    android:viewportHeight="8">
+    <!-- Speaker Body -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M1,3h2v2h-2z M3,3l2,-2v6l-2,-2z" />
+    <!-- Mute X -->
+    <path
+        android:fillColor="#FF0000"
+        android:pathData="M7,3h1l1,1l1,-1h1v1l-1,1l1,1v1h-1l-1,-1l-1,1h-1v-1l1,-1l-1,-1z" />
+</vector>
