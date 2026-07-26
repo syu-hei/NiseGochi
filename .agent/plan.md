@@ -1,12 +1,12 @@
 # Project Plan
 
-Provide the updated project brief markdown for 'MyGottch' including the Phase 2 features.
+Provide the updated project brief markdown for 'NiseGochi' including the Phase 2 features.
 
 ## Project Brief
 
-# MyGottch - Project Brief (Phase 2 Update)
+# NiseGochi - Project Brief (Phase 2 Update)
 
-MyGottch is a modern virtual pet simulator built for Android, blending the nostalgic charm of classic handheld "Gotchi" devices with cutting-edge Android technology. This MVP update focuses on enhancing the pet's lifecycle persistence and optimizing the experience for all device form factors.
+NiseGochi is a modern virtual pet simulator built for Android, blending the nostalgic charm of classic handheld "Gotchi" devices with cutting-edge Android technology. This MVP update focuses on enhancing the pet's lifecycle persistence and optimizing the experience for all device form factors.
 
 ## Features
 
