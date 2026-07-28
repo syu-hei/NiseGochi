@@ -1,30 +1,24 @@
 # NiseGochi
 
-NiseGochi is a modern, adaptive retro pet simulation app built with Jetpack Compose.
+A Tamagotchi clone built with Jetpack Compose.
 
-## Features
+## What is this?
 
-- **Retro Aesthetic**: Authentic pixel art and LCD-style display.
-- **Adaptive UI**: Works seamlessly on phones, tablets, and foldable devices using Material 3 Adaptive.
-- **Deep Simulation**: Parity with classic pet mechanics, including hunger, happiness, evolution, and death.
-- **Notifications**: Stay updated on your pet's needs with background worker integration.
-- **Interactive Audio**: Authentic sound effects for a nostalgic experience.
+- **Tamagotchi Clone**: It's basically a rip-off. It gets hungry, evolves, and dies... you know the drill.
+- **Retro Look**: Pixel art and LCD-style screen for that old-school handheld vibe.
+- **Play Anywhere**: Works on phones, tablets, and foldables with a layout that actually fits.
+- **Notifications**: It'll ping your phone when it needs attention.
+- **Classic Sounds**: Authentic 8-bit beeps.
 
-## Tech Stack
+## How to Play
 
-- **UI**: Jetpack Compose, Material 3, Navigation 3.
-- **Architecture**: MVVM with StateFlow and ViewModel.
-- **Persistence**: Room Database.
-- **Background Tasks**: WorkManager.
-- **Media**: Coil for images, MediaPlayer for audio.
+The easiest way is to just grab the latest `app-release.apk` from the [Releases](https://github.com/syu-hei/NiseGochi/releases) page and install it on your Android phone.
 
-## Getting Started
-
+If you're a dev:
 1. Open the project in Android Studio.
-2. Build and run the `app` module.
-3. Name your pet and start the simulation!
+2. Build and run!
 
-## Development
+## Dev Tips
 
-- Use the `Debug Mode` by naming your pet "DEBUG" or pressing the clock "C" button 10 times.
-- Run tests via `./gradlew test`.
+- **Debug Mode**: Name your pet "DEBUG" or mash the clock "C" button 10 times to open the debug menu.
+- **Tests**: Run `./gradlew test` to make sure nothing is broken.
