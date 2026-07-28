@@ -10,6 +10,14 @@ A Tamagotchi clone built with Jetpack Compose.
 - **Notifications**: It'll ping your phone when it needs attention.
 - **Classic Sounds**: Authentic 8-bit beeps.
 
+## Tech Stuff
+
+- **UI**: Jetpack Compose, Material 3
+- **Architecture**: MVVM (ViewModel + StateFlow)
+- **Database**: Room
+- **Background**: WorkManager
+- **Assets**: Coil (Images), MediaPlayer (Audio)
+
 ## How to Play
 
 The easiest way is to just grab the latest `app-release.apk` from the [Releases](https://github.com/syu-hei/NiseGochi/releases) page and install it on your Android phone.
